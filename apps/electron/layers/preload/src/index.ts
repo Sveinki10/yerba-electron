@@ -2,13 +2,13 @@
  * @module preload
  */
 
-import { contextBridge } from "electron";
 import { sha256sum } from "/@/sha256sum";
+import { contextBridge } from "electron";
 import * as fs from "fs";
 
 // Expose version number to renderer
 contextBridge.exposeInMainWorld("yerba", { version: 0.1 });
-
+contextBridge.exposeInMainWorld("fs", fs);
 /**
  * The "Main World" is the JavaScript context that your main renderer code runs in.
  * By default, the page you load in your renderer executes code in this world.
